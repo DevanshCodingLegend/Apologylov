@@ -1,0 +1,411 @@
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+    line-height: 1.8;
+    background-color: #0a0f1c;
+    color: #fcd34d;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+  }
+  #bg-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+  }
+  .overlay h1 {
+    font-size: 4.5rem;
+    font-family: 'Lucida Handwriting', cursive;
+    color: white;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  .animated-heading {
+    font-family: 'Lucida Handwriting', cursive;
+    font-size: 4.5rem;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .animated-heading span {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeInLetter 0.6s ease-out forwards;
+  }
+  @keyframes fadeInLetter {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+    /* Fullscreen Navbar */
+  .fullscreen-nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 64, 0.9); /* Elegant blue-black translucent */
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 999;
+  }
+  .fullscreen-nav.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  }
+  .fullscreen-nav ul {
+    list-style: none;
+  }
+  .fullscreen-nav ul li {
+    margin: 25px 0;
+  }
+  .fullscreen-nav ul li a {
+    font-size: 2.2rem;
+    font-family: 'Great Vibes', cursive;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+  .fullscreen-nav ul li a:hover {
+    color: gold;
+  }
+  
+  /* Carousel Section */
+  .carousel-section {
+    background: #0d1b3d;
+    padding: 80px 20px;
+  }
+  .carousel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+  .carousel-item {
+    width: 280px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  }
+  .img-frame {
+    transform: rotate(-2deg);
+    border: 5px solid goldenrod;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .caption {
+    margin-top: 15px;
+    color: #222;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Letter Section */
+  .letter-section {
+    background: #fff;
+    color: black;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .letter-heading h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+  }
+  .letter-heading hr {
+    border: none;
+    border-top: 3px solid brown;
+    margin: 20px auto;
+    width: 240px;
+  }
+  .letter-button {
+    margin-top: 30px;
+    padding: 14px 26px;
+    border: 3px solid brown;
+    background: transparent;
+    color: brown;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 1px;
+    transition: all 0.4s ease;
+  }
+  .letter-button:hover {
+    background-color: goldenrod;
+    color: white;
+  }
+  
+  /* Letter Video Popup */
+  .letter-popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .video-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+  }
+  .parchment-video {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .close-btn {
+    position: absolute;
+    top: -20px; right: -20px;
+    font-size: 28px;
+    color: black;
+    background: white;
+    border-radius: 50%;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  
+  /* Forgive Me Section */
+  .forgive-section {
+    background: #0d1b3d;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  .whatsapp-btn {
+    margin-top: 25px;
+    display: inline-block;
+    padding: 14px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+    font-size: 1.1rem;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 14px;
+    background: black;
+    font-size: 0.8rem;
+  }
+  .section-divider {
+    height: 3px;
+    background: linear-gradient(to right, #d4af37, #ffd700, #d4af37);
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  /*timeline*/
+  /* TIMELINE SECTION */
+.timeline-section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: transparent;
+  color: #fcd34d; /* soft gold for base text */
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* TIMELINE HEADING */
+
+.timeline-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  text-align: center;
+  position: relative;
+  margin: 100px 0 60px;
+  color: #fcd34d;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  animation: fadeInUp 1.8s ease-in-out;
+}
+
+/* Overline Bar */
+.timeline-heading::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(to right, #fcd34d, #ffe277);
+  border-radius: 2px;
+  animation: glowBar 2s ease-in-out;
+}
+
+/* Underline Bar */
+.timeline-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(to right, #fcd34d, #ffe277);
+  border-radius: 2px;
+  animation: glowBar 2s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowBar {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 120px;
+    opacity: 1;
+  }
+}
+
+
+/* TEXT COLORS */
+.timeline-section h2,
+.timeline-section p,
+.timeline-date {
+  color: #fcd34d;
+}
+
+/* TIMELINE LINE */
+.timeline {
+  position: relative;
+  padding-left: 60px;
+  border-left: 3px solid #fcd34d; /* royal gold line */
+}
+
+/* TIMELINE ITEM */
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+/* TIMELINE DOT */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #fcd34d; /* gold */
+  border-radius: 50%;
+  z-index: 1;
+  border: 3px solid #000; /* black outline */
+  box-shadow: 0 0 10px #fcd34d88; /* soft glow */
+}
+
+/* BOXES AROUND TEXT */
+.timeline-content {
+  background: #101828cc; /* translucent dark navy */
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #fcd34d80; /* subtle gold border */
+  margin-left: 30px;
+  backdrop-filter: blur(8px);
+}
+
+/* TIMELINE TITLE (h2) INSIDE CONTENT */
+.timeline-content h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #fcd34d;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+/* TIMELINE PARAGRAPH */
+.timeline-content p {
+  font-size: 1.05em;
+  color: #fcd34d;
+  line-height: 1.7;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+  
+  /* rest of the styles… */
+  
